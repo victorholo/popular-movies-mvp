@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="an_error_has_occured">An error has occurred.</string>
+    <string name="retry">Retry</string>
+    <string name="sort_popularity">Sort by popularity</string>
+    <string name="sort_by_top_rated">Sort by top rated</string>
+    <string name="sort_by_favorites">Favorites</string>
+
+    <string name="rating_label">Rating:</string>
+    <string name="review_loading_error">Oops! Reviews could not be loaded.</string>
+    <string name="reviews_title">Reviews</string>
+    <string name="videos_title">Videos</string>
+    <string name="no_movie_selected_label">Select a movie for more details</string>
+    <string name="no_reviews_label">There are no reviews for this movie.</string>
+    <string name="videos_loading_error">Oops! Reviews could not be loaded.</string>
+    <string name="no_videos_label">There are no videos for this movie.</string>
+    <string name="add_to_favorites_label">Add to favorites</string>
+    <string name="remove_favorite">Remove favorite</string>
+    <string name="added_to_favorites">Successfully added to favorites</string>
+    <string name="removed_from_favorites">Successfully removed from favorites</string>
+    <string name="review_author_base">%1$s wrote:</string>
+</resources>

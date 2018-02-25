@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/layout_margin_material"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/no_movie_selected_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorAccent"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/mainLoadingIndicator"
+            android:layout_width="@dimen/loading_indicator_size"
+            android:layout_height="@dimen/loading_indicator_size"
+            android:layout_gravity="center"
+            android:progressTint="@color/colorAccent"
+            android:visibility="invisible" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.popularmovies.ui.detail.DetailFragment">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageView
+                android:id="@+id/posterImageView"
+                android:layout_width="@dimen/match_constraint_width"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/layout_margin_material"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ratingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_margin_material"
+                android:layout_marginStart="@dimen/layout_margin_material"
+                android:layout_marginTop="@dimen/layout_margin_material"
+                android:text="@string/rating_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/averageTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/averageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="@dimen/layout_margin_material"
+                android:layout_marginStart="@dimen/layout_margin_material"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/favoriteButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ratingLabel" />
+
+            <TextView
+                android:id="@+id/plotTextView"
+                android:layout_width="@dimen/match_constraint_width"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layout_margin_material"
+                android:layout_marginEnd="@dimen/layout_margin_material"
+                android:layout_marginStart="@dimen/layout_margin_material"
+                android:layout_marginTop="@dimen/layout_margin_material"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@android:color/background_light"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="@dimen/match_constraint_width"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_material"
+                android:background="@color/colorAccent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/posterImageView">
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin_material"
+                    android:layout_marginStart="@dimen/layout_margin_material"
+                    android:layout_marginTop="@dimen/layout_margin_material"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/yearTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_material"
+                    android:layout_marginLeft="@dimen/layout_margin_material"
+                    android:layout_marginStart="@dimen/layout_margin_material"
+                    android:layout_marginTop="@dimen/subtitle_top_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/videoLayout"
+                android:layout_width="@dimen/match_constraint_width"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/layout_margin_material"
+                android:paddingTop="@dimen/layout_margin_material"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plotTextView">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/subtitle_top_margin"
+                    android:text="@string/videos_title"
+                    android:layout_marginLeft="@dimen/layout_margin_material"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/colorAccent" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/videoRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/layout_margin_material" />
+
+                <ProgressBar
+                    android:id="@+id/videosLoadingIndicator"
+                    android:layout_width="@dimen/loading_indicator_size"
+                    android:layout_height="@dimen/loading_indicator_size"
+                    android:layout_gravity="center"
+                    android:progressTint="@color/colorAccent"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/videoErrorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/videos_loading_error"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/match_constraint_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_material"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/videoLayout">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/subtitle_top_margin"
+                    android:text="@string/reviews_title"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/colorAccent" />
+
+                <LinearLayout
+                    android:id="@+id/reviewItemsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <ProgressBar
+                    android:id="@+id/reviewsLoadingIndicator"
+                    android:layout_width="@dimen/loading_indicator_size"
+                    android:layout_height="@dimen/loading_indicator_size"
+                    android:layout_gravity="center"
+                    android:progressTint="@color/colorAccent"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/reviewErrorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/review_loading_error"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/favoriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/match_constraint_width"
+                android:layout_marginBottom="@dimen/layout_margin_material"
+                android:layout_marginEnd="@dimen/layout_margin_material"
+                android:layout_marginStart="@dimen/layout_margin_material"
+                android:background="@color/colorAccent"
+                android:paddingLeft="@dimen/button_padding"
+                android:paddingRight="@dimen/button_padding"
+                android:textColor="@android:color/white"
+                android:textOff="@string/add_to_favorites_label"
+                android:textOn="@string/remove_favorite"
+                app:layout_constraintBottom_toBottomOf="@+id/posterImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/posterImageView" />
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+</ScrollView>

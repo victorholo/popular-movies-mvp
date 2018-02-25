@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin_material">16dp</dimen>
+    <dimen name="subtitle_top_margin">8dp</dimen>
+    <dimen name="match_constraint_width">0dp</dimen>
+    <dimen name="loading_indicator_size">42dp</dimen>
+    <dimen name="recyclerview_bottom_margin">8dp</dimen>
+    <dimen name="play_button_size">48dp</dimen>
+    <dimen name="video_title_size">18sp</dimen>
+    <dimen name="button_padding">8dp</dimen>
+</resources>
